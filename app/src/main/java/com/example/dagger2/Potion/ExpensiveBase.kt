@@ -2,13 +2,14 @@ package com.example.dagger2.Potion
 
 import android.util.Log
 import javax.inject.Inject
-
-//TODO 2: create two classes that implements our interface
-class ExpensiveBase @Inject constructor(): Base {
+//TODO 1: Let's say that we need to pass some arguments in runtime.
+//We cant inject this constructor so delete @Inject
+class ExpensiveBase(val energy: Int): Base {
 
     private val TAG = "Potion"
 
     override fun prepare() {
-        Log.d(TAG, "Expensive base prepared")
+        //Upgrade our function
+        Log.d(TAG, "Expensive base prepared. Energy: "+energy)
     }
 }
