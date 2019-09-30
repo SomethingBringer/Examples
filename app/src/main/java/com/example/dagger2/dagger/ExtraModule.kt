@@ -1,5 +1,8 @@
-package com.example.dagger2
+package com.example.dagger2.dagger
 
+import com.example.dagger2.Potion.Core
+import com.example.dagger2.Potion.Extra
+import com.example.dagger2.Potion.Liquid
 import dagger.Module
 import dagger.Provides
 
