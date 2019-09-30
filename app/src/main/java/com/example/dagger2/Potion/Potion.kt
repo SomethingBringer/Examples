@@ -13,7 +13,6 @@ class Potion @Inject constructor (val base: Base, val extra: Extra) {
     }
 
     fun effect(){
-        //TODO 6: invoke base.prepare. Run the app and watch the logs. Swap the module in the component and ty again.
         base.prepare()
         Log.d(TAG,"some effect...")
     }
