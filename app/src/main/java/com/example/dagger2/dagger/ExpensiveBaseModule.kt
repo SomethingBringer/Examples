@@ -7,9 +7,16 @@ import dagger.Provides
 
 @Module
 class ExpensiveBaseModule(val energy: Int){
-    //TODO 2: Change @Binds to @Provides. Pass needed value to the module constructor to be able to pass it in the function.
+
+    //TODO 1: We can upgrade our module. We can tell dagger how to provide energy via @Provides function
     @Provides
-    fun providesExpensiveBase(): Base{
-        return ExpensiveBase(energy)
+    fun provideEnergy(): Int{
+        return energy
+    }
+
+    //TODO 3: Since dagger knows how to create an expansive base - we can upgrade our function here
+    @Provides
+    fun providesExpensiveBase(expensiveBase: ExpensiveBase): Base{
+        return expensiveBase
     }
 }

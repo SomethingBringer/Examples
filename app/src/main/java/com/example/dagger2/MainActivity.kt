@@ -13,15 +13,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //TODO 3: Change our component creation
-        //Now dagger don't know how to create the module of our component - so we can't use create().
-        //Now we should use build().someModule( and here we pass the needed value ) and then call build()
+        //TODO 8: Change our builder
         val potionComponent = DaggerPotionComponent.builder()
-            .expensiveBaseModule(ExpensiveBaseModule(100))
+            //.expansiveBaseModule(ExpansiveBaseModule(100))
+            .energy(100)
+            .stability(50)
             .build()
         potionComponent.inject(this)
         //potion = potionComponent.getPotion()
         potion.effect()
     }
-    //TODO 4: Run the project and watch for logs.
 }
