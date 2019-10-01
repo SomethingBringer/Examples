@@ -5,25 +5,28 @@ import com.example.dagger2.Potion.Potion
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Named
+import javax.inject.Singleton
 
+//If we use @Singleton class in the component - we need to make our component @Singleton
+//TODO 5: Annotate with @Singleton. Run the project and watch for logs
+//@Singleton can also be used on @Provides methods is u cant inject object an should provide it
+//The thing is - @Singleton works within the same component.
+//So if u make 2 components and get 1 potion from each of them - u will get different volunteers.
+@Singleton
 @Component(modules = [ExtraModule::class, CheapBaseModule::class])
 interface PotionComponent {
     fun getPotion(): Potion
     fun inject(mainActivity: MainActivity)
 
-    //TODO 5: Now we need to create our builder by @Component.Builder over nested interface Builder
     @Component.Builder
     interface Builder{
-        //TODO 7: Now write functions for our values. Try this without @Named annotation.
-        //U will see an error - u r asking for int and dagger don't know which one to take. That's why we need @Named annotation
-        //This way we can tell dagger which value belongs to which field
+
         @BindsInstance
         fun energy(@Named("energy") energy: Int):Builder
 
         @BindsInstance
         fun stability(@Named("stability") stability: Int):Builder
 
-        //TODO 6: write the build fun that will return our component. Do not forget to change modules of the component
         fun build():PotionComponent
     }
 }
