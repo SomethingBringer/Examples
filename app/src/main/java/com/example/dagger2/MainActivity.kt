@@ -11,6 +11,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     //TODO 3: Create another Potion and call it effect()
     //Run the project. In logs u will see different volunteers testing different potions
+    //Lets make just one volunteer to test all of the potions.
     @Inject
     lateinit var potion1: Potion
     @Inject
