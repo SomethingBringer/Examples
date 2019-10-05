@@ -4,7 +4,6 @@ import com.example.dagger2.Potion.Volunteer
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
-//TODO 3: Provide volunteer
 @Module
 object VolunteerModule {
     @Provides
